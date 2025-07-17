@@ -3,7 +3,7 @@ using UnityEngine;
 public class ExpontiallCurveZoom : MonoBehaviour
 {
     [SerializeField] InputManagerForSHGV01 _input;
-    [Header("---- Zoom Settings ----")]
+    [Header("---- ScrollWheelInput Settings ----")]
     [SerializeField] float zoomSpeed = 2.0f;
     [SerializeField] float minZoomLevel = 0.0f;
     [SerializeField] float maxZoomLevel = 5.0f;
@@ -16,7 +16,7 @@ public class ExpontiallCurveZoom : MonoBehaviour
     [SerializeField] ExponentialCurve zCurve;
     [SerializeField] bool isZNegative;
 
-    [Header("---- Start of Zoom Camera Angle - End of Zoom Camera Angle ----")]
+    [Header("---- Start of ScrollWheelInput Camera Angle - End of ScrollWheelInput Camera Angle ----")]
     [SerializeField] float startOfZoomAngle = 10f;
     [SerializeField] float endOfZoomAngle = 80f;
 
@@ -49,8 +49,8 @@ public class ExpontiallCurveZoom : MonoBehaviour
 
     void Update()
     {
-        scrollInput = new Vector2(_input.Zoom.x, _input.Zoom.y);
-        rotationInput = new Vector2(_input.RotationDir.x, _input.RotationDir.y);
+        scrollInput = new Vector2(_input.GetScrollWheelInput().x, _input.GetScrollWheelInput().y);
+        rotationInput = new Vector2(_input.GetRotationDirInput().x, _input.GetRotationDirInput().y);
 
         if (Mathf.Abs(scrollInput.y) > 0.01f)
             MoveCameraBasedOnScrollInput();

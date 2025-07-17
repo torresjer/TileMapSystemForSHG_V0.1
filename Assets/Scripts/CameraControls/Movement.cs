@@ -5,7 +5,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField] InputManagerForSHGV01 _input;
 
-    [Header("Movement Variables")]
+    [Header("MovementInput Variables")]
     [SerializeField] Vector3 startPosForCamera;
     [SerializeField] Vector2 XPosBounds;
     [SerializeField] Vector2 ZPosBounds;
@@ -46,8 +46,8 @@ public class Movement : MonoBehaviour
     }
     void CheckForInput()
     {
-        currentMovement = new Vector2(_input.Movement.x, _input.Movement.y);
-        currentRotation = new Vector2(_input.RotationDir.x, _input.RotationDir.y);
+        currentMovement = new Vector2(_input.GetMovementInput().x, _input.GetMovementInput().y);
+        currentRotation = new Vector2(_input.GetRotationDirInput().x, _input.GetRotationDirInput().y);
         
         if (Mathf.Abs(currentRotation.y) > 0.01f)
         {
