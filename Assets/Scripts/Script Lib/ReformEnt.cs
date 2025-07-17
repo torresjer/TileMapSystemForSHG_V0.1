@@ -6,6 +6,7 @@ namespace ReformEnt
     {
         public class UI
         {
+            //Creates a Text object in the world at any position.
             public static TextMesh CreateWorldText(string gameObjectName, string textToDisplay, Transform parent = null, Vector3 localPosition = default(Vector3), int fontSize = 12, Color color = default(Color), TextAnchor textAnchor = default(TextAnchor), TextAlignment textAlignment = default(TextAlignment), int sortingOrder = 0)
             {
                 if (color == default(Color))
